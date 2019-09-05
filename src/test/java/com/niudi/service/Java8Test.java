@@ -82,4 +82,68 @@ public class Java8Test extends Thread{
     Stream<String> stringStream = strings.stream().filter(string -> string.isEmpty());
     System.out.println(stringStream.toArray().toString());
   }
+
+  @Test
+  public void test() {
+
+    int[] a = {1,2,3,4,5,2,3,4,2};
+    Set set = new HashSet();
+    Set set2 = new HashSet();
+    Set set3 = new HashSet();
+    for (int i = 0; i < a.length; i++) {
+      int oldSize = set.size();
+      set.add(a[i]);
+      int newSize = set.size();
+      if (oldSize == newSize) {
+        int oldSize2 = set2.size();
+        set2.add(a[i]);
+        int newSize2 = set2.size();
+        if (oldSize2 == newSize2) {
+          set3.add(a[i]);
+        }
+      }
+    }
+    set2.removeAll(set3);
+    for (int i = 0; i < a.length; i++) {
+      int size = set2.size();
+      set2.add(a[i]);
+      int size1 = set2.size();
+      if (size == size1) {
+        System.out.println(a[i]);
+        break;
+      }
+    }
+    System.out.println(123);
+  }
+
+  @Test
+  public void randomTest() {
+    double[] arr = {1, 1.2, 2.5, 3, 5};
+    Random r = new Random();
+    int m = 1;
+    int j = 0;
+    List<Double> list = new ArrayList<>();
+    for (int n = 0; n < 10000; n++) {
+      int i = r.nextInt(15);
+      if (i == 0) {
+        j = 0;
+      } else if (i > 0 && i <= 2) {
+        j = 1;
+      } else if (i > 2 && i <= 5) {
+        j = 2;
+      } else if (i > 5 && i <= 9) {
+        j = 3;
+      } else if (i > 9 && i <= 14) {
+        j = 4;
+      }
+      list.add(arr[j]);
+      if (m == 3) {
+        m = 0;
+        System.out.println(list);
+        list.clear();
+      }
+      m++;
+    }
+  }
+
 }
