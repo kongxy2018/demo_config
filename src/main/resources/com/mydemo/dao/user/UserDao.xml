@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.mydemo.dao.user.UserDao">
+
+
+    <insert id="saveOneUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user (user_name, age, birthday) values (#{userName}, #{age}, #{birthday});
+    </insert>
+
+    <select id="findUsers" resultType="com.mydemo.domain.User">
+        select * from user
+    </select>
+
+    <select id="queryAllUser" resultType="com.mydemo.domain.User">
+        select * from user
+    </select>
+
+</mapper>

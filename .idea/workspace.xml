@@ -553,13 +553,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PrintNumber">
-    <configuration name="PrintNumber" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.niudi.service.PrintNumber" />
+  <component name="RunManager" selected="Application.Chinese2Unicode">
+    <configuration name="Chinese2Unicode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mydemo.util.param.Chinese2Unicode" />
       <module name="demo_config" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.niudi.service.xujiahuanxing.*" />
+          <option name="PATTERN" value="com.mydemo.util.param.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -597,7 +597,7 @@
       <module name="demo_config" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.niudi.service.xujiahuanxing.*" />
+          <option name="PATTERN" value="com.mydemo.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -613,7 +613,7 @@
       <module name="demo_config" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.niudi.service.xujiahuanxing.*" />
+          <option name="PATTERN" value="com.mydemo.service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

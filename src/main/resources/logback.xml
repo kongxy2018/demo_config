@@ -30,7 +30,7 @@
 	
   </appender>
 
-  <logger name="com.niudi" level="debug" />
+  <logger name="com.mydemo" level="debug" />
   
   <root level="info">
   
