@@ -1,7 +1,14 @@
 package com.niudi.service;
 
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
+import java.nio.file.spi.FileTypeDetector;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -146,4 +153,165 @@ public class Java8Test extends Thread{
     }
   }
 
+
+  @Test
+  public void assertTest() {
+    Assert.assertTrue("异常", false);
+
+  }
+
+  @Test
+  public void catchForTest() {
+    for (int i = 0; i < 2; i++) {
+      try {
+        int n = 1/0;
+        int m = 1/1;
+
+      } catch (Exception e) {
+        //e.printStackTrace();
+        System.out.println(123);
+      }
+      System.out.println(i);
+    }
+  }
+
+  @Test
+  public void test01(){
+    System.out.println("结果--"+tryTest());
+  }
+
+  public int tryTest(){
+    int a=1;
+    try {
+      a=11;
+      System.out.println("try:"+a);
+      return a+1;
+    }catch (Exception e){
+      a=22;
+    }finally {
+      a=33;
+      System.out.println("finally: "+a);
+      return a;
+    }
+  }
+
+
+  @Test
+  public void testMatch() {
+    String reg = "[1,2,3]";
+    String str = "11";
+    boolean matches = str.matches(reg);
+    System.out.println(matches);
+  }
+
+
+
+
+
+  public static Date timeStr2Date(String time, String pattern)
+  {
+    if (null == time)
+    {
+      throw new IllegalArgumentException("time parameter can not be null");
+    }
+    if (null == pattern)
+    {
+      throw new IllegalArgumentException("pattern parameter can not be null");
+    }
+    SimpleDateFormat sdf = getSimpleDateFormat(pattern, new Locale("EN"));
+    try
+    {
+      return sdf.parse(time);
+    }
+    catch (ParseException e)
+    {
+      throw new IllegalArgumentException("using [" + pattern + "] parse [" + time + "] failed");
+    }
+  }
+
+  public static SimpleDateFormat getSimpleDateFormat(String datePattern, Locale currentLocale)
+  {
+    return getSimpleDateFormatFormCache(datePattern, currentLocale);
+  }
+
+  private static SimpleDateFormat getSimpleDateFormatFormCache(String datePattern, Locale currentLocale)
+  {
+    Map<String, SimpleDateFormat> simpleDateFormatMap = getSimpleDateFormatMap();
+
+    SimpleDateFormat sf = simpleDateFormatMap.get(datePattern);
+    if (sf != null)
+    {
+      return sf;
+    }
+    else
+    {
+      if (StringUtils.isEmpty(datePattern))
+      {
+        sf = new SimpleDateFormat();
+      }
+      else
+      {
+        sf = new SimpleDateFormat(datePattern, currentLocale == null ? DEFAULT_LOCALE : currentLocale);
+      }
+
+      simpleDateFormatMap.put(datePattern, sf);
+      return sf;
+    }
+  }
+
+  private static Map<String, SimpleDateFormat> getSimpleDateFormatMap()
+  {
+    Map<String, SimpleDateFormat> simpleDateFormatMap = dateFormatCache.get();
+    if (simpleDateFormatMap == null)
+    {
+      simpleDateFormatMap = new HashMap<String, SimpleDateFormat>();
+      dateFormatCache.set(simpleDateFormatMap);
+    }
+
+    return simpleDateFormatMap;
+  }
+  private static final ThreadLocal<Map<String, SimpleDateFormat>> dateFormatCache = new ThreadLocal<Map<String, SimpleDateFormat>>();
+  private static final Locale DEFAULT_LOCALE = new Locale("EN");
+
+
+  @Test
+  public void testDateFormat() {
+    /*Date date = timeStr2Date("2019-03-12 12:23", "yyyy-MM-dd HH:mm:ss");
+    System.out.println(date);*/
+
+    Date date = strToDate("2019-03-12 12:23:12", "yyyy-MM-dd HH:mm:ss");
+    System.out.println(date);
+  }
+
+
+  public static Date strToDate(String strDate, String strFormat) {
+    if (null != strDate && null != strFormat) {
+      SimpleDateFormat df = null;
+      Date date = null;
+
+      try {
+        df = new SimpleDateFormat(strFormat);
+      } catch (IllegalArgumentException var6) {
+        df = new SimpleDateFormat("yyyyMMddHHmmss");
+      }
+
+      try {
+        date = df.parse(strDate);
+      } catch (ParseException var5) {
+        System.out.println(12312313);
+      }
+
+      return date;
+    } else {
+      return null;
+    }
+  }
+
+
+
+  @Test
+  public void testShort() {
+    //Short i = 999999999;
+
+  }
 }

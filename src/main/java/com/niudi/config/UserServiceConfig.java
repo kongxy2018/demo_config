@@ -23,7 +23,7 @@ public class UserServiceConfig {
   @Value("${user.birthday}")
   private String birthday;
 
-  @Bean
+  @Bean(initMethod = "init", destroyMethod = "close")
   public User user() {
     User user = new User();
     user.setUserName(userName);
@@ -31,4 +31,6 @@ public class UserServiceConfig {
     user.setBirthday(birthday);
     return user;
   }
+
+
 }

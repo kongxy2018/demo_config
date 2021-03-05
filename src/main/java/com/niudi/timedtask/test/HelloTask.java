@@ -16,7 +16,7 @@ public class HelloTask extends Job {
     try {
     log.info("测试定时执行------Hello job ");
     System.out.println("hello job executing");
-    int a = 10/0;
+//    int a = 10/0;
     } catch (Exception e) {
       log.error("错误测试。。。");
       JobExecutionException e2 = new JobExecutionException(e);

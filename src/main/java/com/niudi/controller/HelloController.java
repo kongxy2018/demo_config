@@ -26,6 +26,6 @@ public class HelloController {
   public String sayHello() {
     User user = BeansRegistry.getBean(User.class);
     System.out.println(user);
-    return "Hello {} !";
+    return "Hello " + user;
   }
 }

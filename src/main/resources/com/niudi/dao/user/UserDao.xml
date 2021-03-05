@@ -10,7 +10,11 @@
         insert into user (user_name, age, birthday) values (#{userName}, #{age}, #{birthday});
     </insert>
 
-    <select id="findUsers" resultType="User">
+    <select id="findUsers" resultType="com.niudi.domain.User">
+        select * from user
+    </select>
+
+    <select id="queryAllUser" resultType="com.niudi.domain.User">
         select * from user
     </select>
 

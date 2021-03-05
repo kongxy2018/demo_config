@@ -1,7 +1,5 @@
 package com.niudi.service.xujiahuanxing;
 
-import org.junit.Test;
-
 public class ThreadTest {
 
   public static void main(String[] args) {
